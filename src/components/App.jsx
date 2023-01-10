@@ -6,9 +6,9 @@ import Notification from './Notification/Notification.jsx';
 
 export class App extends React.Component {
   state = {
-    Good: 0,
-    Neutral: 0,
-    Bad: 0,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   handleFeedback = event => {
@@ -32,7 +32,7 @@ export class App extends React.Component {
     const total = arrayValuesState.reduce((acc, el) => {
       return acc + el;
     }, 0);
-    return Math.round((this.state.Good * 100) / total);
+    return Math.round((this.state.good * 100) / total);
   };
 
   render() {
@@ -40,7 +40,6 @@ export class App extends React.Component {
       <div
         style={{
           height: '100vh',
-          //display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 40,
@@ -54,11 +53,11 @@ export class App extends React.Component {
           />
         </Section>
         <Section title="Statistics">
-          {this.state.Good || this.state.Neutral || this.state.Bad ? (
+          {this.countTotal() ? (
             <Statistics
-              good={this.state.Good}
-              neutral={this.state.Neutral}
-              bad={this.state.Bad}
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
               total={this.countTotal()}
               positivePercentage={this.countPercentage()}
             />
