@@ -48,7 +48,7 @@ export class App extends React.Component {
       >
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.state}
+            buttons={Object.keys(this.state)}
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>

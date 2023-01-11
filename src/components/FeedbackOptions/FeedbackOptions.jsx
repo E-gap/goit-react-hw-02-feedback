@@ -2,9 +2,7 @@ import React from 'react';
 import css from './FeedbackOptions.module.css';
 import PropTypes from 'prop-types';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  const buttons = Object.keys(options);
-
+const FeedbackOptions = ({ buttons, onLeaveFeedback }) => {
   return (
     <div className={css.title}>
       <ul className={css.buttonsList}>
@@ -26,7 +24,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number).isRequired,
+  buttons: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 
